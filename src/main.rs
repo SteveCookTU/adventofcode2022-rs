@@ -44,7 +44,7 @@ fn main() -> Result<(), Error> {
     input = get_input("./inputs/day7.txt")?;
     let day7_part1 = day7::part1(&input);
     let day7_part2 = day7::part2(&input);
-    println!("Day 7: The sum of small files is {}", day7_part1);
-    println!("Day 7: Smallest file to delete is {} bytes", day7_part2);
+    println!("Day 7: The sum of small directories is {}", day7_part1);
+    println!("Day 7: Smallest directory to delete is {} bytes", day7_part2);
     Ok(())
 }
