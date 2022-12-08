@@ -1,5 +1,5 @@
 use std::cell::RefCell;
-use std::rc::Rc;
+use std::rc::{Rc, Weak};
 use std::str::FromStr;
 
 struct DirectoryTree<'a> {
@@ -8,7 +8,7 @@ struct DirectoryTree<'a> {
 
 #[derive(Clone)]
 struct DirectoryNode<'a> {
-    parent: Option<Rc<RefCell<DirectoryNode<'a>>>>,
+    parent: Option<Weak<RefCell<DirectoryNode<'a>>>>,
     name: &'a str,
     files: Vec<File>,
     directories: Vec<Rc<RefCell<DirectoryNode<'a>>>>,
@@ -52,7 +52,7 @@ fn parse_to_tree(input: &[String]) -> DirectoryTree {
             let name = &line[5..];
             if name == ".." {
                 let new_node = current_node.borrow().parent.as_ref().unwrap().clone();
-                current_node = new_node;
+                current_node = new_node.upgrade().unwrap();
             } else {
                 let new_node = current_node
                     .borrow()
@@ -69,7 +69,7 @@ fn parse_to_tree(input: &[String]) -> DirectoryTree {
                 .borrow_mut()
                 .directories
                 .push(Rc::new(RefCell::new(DirectoryNode {
-                    parent: Some(current_node.clone()),
+                    parent: Some(Rc::downgrade(&current_node)),
                     name: dir_name,
                     files: vec![],
                     directories: vec![],
