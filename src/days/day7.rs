@@ -25,7 +25,7 @@ impl<'a> DirectoryTree<'a> {
         node: Option<Rc<RefCell<DirectoryNode<'a>>>>,
         result: &mut Vec<u64>,
     ) -> u64 {
-        let node = node.unwrap_or(self.root.clone());
+        let node = node.unwrap_or_else(|| self.root.clone());
         let mut dir_total = 0;
         for directory in node.borrow().directories.iter() {
             dir_total += self.find_sizes(Some(directory.clone()), result);
@@ -88,7 +88,10 @@ pub fn part1(input: &[String]) -> u64 {
     let tree = parse_to_tree(input);
     let mut sizes = Vec::new();
     let _total_size = tree.find_sizes(None, &mut sizes);
-    sizes.into_iter().filter(|&size| size <= 100000).sum::<u64>()
+    sizes
+        .into_iter()
+        .filter(|&size| size <= 100000)
+        .sum::<u64>()
 }
 
 pub fn part2(input: &[String]) -> u64 {
@@ -96,9 +99,12 @@ pub fn part2(input: &[String]) -> u64 {
     let mut sizes = Vec::new();
     let total_size = tree.find_sizes(None, &mut sizes);
     let unused_space = 70000000 - total_size;
-    sizes.into_iter().filter(|&size| unused_space + size >= 30000000).min().unwrap()
+    sizes
+        .into_iter()
+        .filter(|&size| unused_space + size >= 30000000)
+        .min()
+        .unwrap()
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -106,7 +112,8 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        let input = parse_input_static("$ cd /
+        let input = parse_input_static(
+            "$ cd /
 $ ls
 dir a
 14848514 b.txt
@@ -128,14 +135,16 @@ $ ls
 4060174 j
 8033020 d.log
 5626152 d.ext
-7214296 k");
+7214296 k",
+        );
 
         assert_eq!(95437, day7::part1(&input));
     }
 
     #[test]
     fn test_part2() {
-        let input = parse_input_static("$ cd /
+        let input = parse_input_static(
+            "$ cd /
 $ ls
 dir a
 14848514 b.txt
@@ -157,7 +166,8 @@ $ ls
 4060174 j
 8033020 d.log
 5626152 d.ext
-7214296 k");
+7214296 k",
+        );
 
         assert_eq!(24933642, day7::part2(&input));
     }
