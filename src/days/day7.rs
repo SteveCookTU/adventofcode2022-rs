@@ -6,7 +6,6 @@ struct DirectoryTree<'a> {
     root: Rc<RefCell<DirectoryNode<'a>>>,
 }
 
-#[derive(Clone)]
 struct DirectoryNode<'a> {
     parent: Option<Weak<RefCell<DirectoryNode<'a>>>>,
     name: &'a str,
@@ -14,7 +13,6 @@ struct DirectoryNode<'a> {
     directories: Vec<Rc<RefCell<DirectoryNode<'a>>>>,
 }
 
-#[derive(Clone)]
 struct File {
     size: u64,
 }

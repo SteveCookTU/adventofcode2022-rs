@@ -45,6 +45,9 @@ fn main() -> Result<(), Error> {
     let day7_part1 = day7::part1(&input);
     let day7_part2 = day7::part2(&input);
     println!("Day 7: The sum of small directories is {}", day7_part1);
-    println!("Day 7: Smallest directory to delete is {} bytes", day7_part2);
+    println!(
+        "Day 7: Smallest directory to delete is {} bytes",
+        day7_part2
+    );
     Ok(())
 }
