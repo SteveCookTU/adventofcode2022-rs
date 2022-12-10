@@ -1,4 +1,4 @@
-use adventofcode2022::{day1, day2, day3, day4, day5, day6, day7, get_input};
+use adventofcode2022::{day1, day2, day3, day4, day5, day6, day7, day8, get_input};
 use std::io::Error;
 
 fn main() -> Result<(), Error> {
@@ -49,5 +49,11 @@ fn main() -> Result<(), Error> {
         "Day 7: Smallest directory to delete is {} bytes",
         day7_part2
     );
+
+    input = get_input("./inputs/day8.txt")?;
+    let day8_part1 = day8::part1(&input);
+    let day8_part2 = day8::part2(&input);
+    println!("Day 8: {} visible trees", day8_part1);
+    println!("Day 8: Max view distance is {}", day8_part2);
     Ok(())
 }
