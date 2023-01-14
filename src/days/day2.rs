@@ -1,4 +1,4 @@
-pub fn part1(input: &[String]) -> u32 {
+pub fn part1(input: &[&str]) -> u32 {
     let mut total_score = 0;
     for line in input {
         let (opponent, player) = parse_line_to_choices(line);
@@ -25,7 +25,7 @@ pub fn part1(input: &[String]) -> u32 {
     total_score
 }
 
-pub fn part2(input: &[String]) -> u32 {
+pub fn part2(input: &[&str]) -> u32 {
     let mut total_score = 0;
     for line in input {
         let (opponent, player) = parse_line_to_choices(line);

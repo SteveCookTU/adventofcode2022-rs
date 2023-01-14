@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-pub fn part1(input: &[String]) -> usize {
+pub fn part1(input: &[&str]) -> usize {
     let line = &input[0];
     let mut processed_characters = 0;
     for (i, window) in line.as_bytes().windows(4).enumerate() {
@@ -20,7 +20,7 @@ pub fn part1(input: &[String]) -> usize {
     processed_characters
 }
 
-pub fn part2(input: &[String]) -> usize {
+pub fn part2(input: &[&str]) -> usize {
     let line = &input[0];
     let mut processed_characters = 0;
     let mut set = HashSet::with_capacity(14);

@@ -1,4 +1,4 @@
-pub fn part1(input: &[String]) -> u32 {
+pub fn part1(input: &[&str]) -> u32 {
     let mut priority_sum = 0;
     for line in input {
         let full_bytes = line.as_bytes();
@@ -18,7 +18,7 @@ pub fn part1(input: &[String]) -> u32 {
     priority_sum
 }
 
-pub fn part2(input: &[String]) -> u32 {
+pub fn part2(input: &[&str]) -> u32 {
     let mut priority_sum = 0;
     for line in input.chunks_exact(3) {
         let first = line[0].as_bytes();

@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-pub fn part1(input: &[String]) -> u32 {
+pub fn part1(input: &[&str]) -> u32 {
     let mut max = 0;
     let mut current = 0;
     for line in input {
@@ -19,7 +19,7 @@ pub fn part1(input: &[String]) -> u32 {
     max
 }
 
-pub fn part2(input: &[String]) -> u32 {
+pub fn part2(input: &[&str]) -> u32 {
     let mut values = Vec::new();
     let mut current = 0;
     for line in input {

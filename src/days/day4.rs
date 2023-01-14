@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-pub fn part1(input: &[String]) -> u32 {
+pub fn part1(input: &[&str]) -> u32 {
     let mut count = 0;
 
     for line in input {
@@ -26,7 +26,7 @@ pub fn part1(input: &[String]) -> u32 {
     count
 }
 
-pub fn part2(input: &[String]) -> u32 {
+pub fn part2(input: &[&str]) -> u32 {
     let mut count = 0;
 
     for line in input {

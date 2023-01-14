@@ -34,7 +34,7 @@ impl<'a> DirectoryTree<'a> {
     }
 }
 
-fn parse_to_tree(input: &[String]) -> DirectoryTree {
+fn parse_to_tree<'a>(input: &[&'a str]) -> DirectoryTree<'a> {
     let tree = DirectoryTree {
         root: Rc::new(RefCell::new(DirectoryNode {
             parent: None,
@@ -82,7 +82,7 @@ fn parse_to_tree(input: &[String]) -> DirectoryTree {
     tree
 }
 
-pub fn part1(input: &[String]) -> u64 {
+pub fn part1(input: &[&str]) -> u64 {
     let tree = parse_to_tree(input);
     let mut sizes = Vec::new();
     let _total_size = tree.find_sizes(None, &mut sizes);
@@ -92,7 +92,7 @@ pub fn part1(input: &[String]) -> u64 {
         .sum::<u64>()
 }
 
-pub fn part2(input: &[String]) -> u64 {
+pub fn part2(input: &[&str]) -> u64 {
     let tree = parse_to_tree(input);
     let mut sizes = Vec::new();
     let total_size = tree.find_sizes(None, &mut sizes);

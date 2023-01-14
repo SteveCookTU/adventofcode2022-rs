@@ -1,4 +1,4 @@
-pub fn part1(input: &[String]) -> u32 {
+pub fn part1(input: &[&str]) -> u32 {
     let bytes = input.iter().map(|s| s.as_bytes()).collect::<Vec<_>>();
 
     let mut visible = 0;
@@ -24,7 +24,7 @@ pub fn part1(input: &[String]) -> u32 {
     visible
 }
 
-pub fn part2(input: &[String]) -> usize {
+pub fn part2(input: &[&str]) -> usize {
     let bytes = input.iter().map(|s| s.as_bytes()).collect::<Vec<_>>();
 
     let mut max_view_distance = 0;

@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-pub fn part1(input: &[String]) -> String {
+pub fn part1(input: &[&str]) -> String {
     let mut inputs = input.split(|s| s.is_empty());
     let stack_input = inputs.next().unwrap();
     let stack_count = stack_input.last().unwrap().trim().replace(' ', "").len();
@@ -42,7 +42,7 @@ pub fn part1(input: &[String]) -> String {
     final_tops
 }
 
-pub fn part2(input: &[String]) -> String {
+pub fn part2(input: &[&str]) -> String {
     let mut inputs = input.split(|s| s.is_empty());
     let stack_input = inputs.next().unwrap();
     let stack_count = stack_input.last().unwrap().trim().replace(' ', "").len();
