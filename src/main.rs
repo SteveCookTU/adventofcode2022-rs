@@ -1,5 +1,5 @@
 use adventofcode2022::{
-    day1, day10, day2, day3, day4, day5, day6, day7, day8, day9, format_input, get_input,
+    day1, day10, day11, day2, day3, day4, day5, day6, day7, day8, day9, format_input, get_input,
 };
 use std::io::Error;
 
@@ -93,6 +93,15 @@ fn main() -> Result<(), Error> {
         let day10_part2 = day10::part2(&input);
         println!("Day 10: Signal strength sum is {day10_part1}");
         println!("Day 10: Output is\n{day10_part2}");
+    }
+
+    input_str = get_input("./inputs/day11.txt")?;
+    {
+        let input = format_input(&input_str);
+        let day11_part1 = day11::part1(&input);
+        let day11_part2 = day11::part2(&input);
+        println!("Day 11: Level of monkey business is {day11_part1}");
+        println!("Day 11: Level of monkey business is {day11_part2}");
     }
     Ok(())
 }
