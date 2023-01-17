@@ -1,5 +1,5 @@
 use adventofcode2022::{
-    day1, day10, day11, day12, day2, day3, day4, day5, day6, day7, day8, day9, format_input,
+    day1, day10, day11, day12, day13, day2, day3, day4, day5, day6, day7, day8, day9, format_input,
     get_input,
 };
 use std::io::Error;
@@ -112,6 +112,15 @@ fn main() -> Result<(), Error> {
         let day12_part2 = day12::part2(&input);
         println!("Day 12: The shortest path is {day12_part1} steps");
         println!("Day 12: The shortest path is {day12_part2} steps");
+    }
+
+    input_str = get_input("./inputs/day13.txt")?;
+    {
+        let input = format_input(&input_str);
+        let day13_part1 = day13::part1(&input);
+        let day13_part2 = day13::part2(&input);
+        println!("Day 13: The sum of the indices is {day13_part1}");
+        println!("Day 13: The decoder key is {day13_part2}");
     }
     Ok(())
 }
